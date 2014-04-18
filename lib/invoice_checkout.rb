@@ -16,18 +16,6 @@ module InvoiceCheckout
 
   module Authorization
     module Permissions
-      def can_pay_via_invoice
-        # authorize! :pay_via_invoice, @payment
-        # If user has this permission the are allowed
-        # to pay with an invoice.
-        # Also verify that the site supports invoice
-        # payments
-        can :pay_via_invoice, Site do |site|
-          site.payment_methods.any? do |pm|
-            pm.name == 'Invoice'
-          end
-        end
-      end
     end
   end
 
